@@ -57,6 +57,46 @@ Traditional expense-splitting apps assume all users deal in the same currency or
 
 ---
 
+### 🧑‍💻 User Flow
+
+1. User opens the app and connects their **Phantom wallet** via `wallet-adapter`.
+2. They create a **bill** (e.g., rent, trip, party) — selecting:
+   - Group members
+   - Total amount
+   - Preferred token to receive (e.g., USDC)
+3. The app generates a **QR code** for others to scan and join the group.
+4. Each member pays in **any supported Solana token** (BONK, JUP, SOL, etc.)
+5. The payment is **auto-swapped to the creator's token** (e.g., USDC) via **Jupiter Aggregator**.
+6. All group/bill/split/payment data is stored in **Supabase** (PostgreSQL + Auth).
+
+---
+
+### ⚙️ System Components
+
+| Component       | Role                                                           |
+|----------------|----------------------------------------------------------------|
+| **Flutter App** | UI + Phantom Connect + QR scanner                             |
+| **Supabase**    | Auth + Group/Bill/Expense data store                           |
+| **Jupiter API** | Gets token swap routes + builds transactions                   |
+| **Solana**      | Blockchain backend for token transfers                         |
+| **Wallet Adapter** | Phantom Wallet connection & signing layer                    |
+
+---
+
+### 📦 Architecture Diagram
+
+```mermaid
+graph TD
+  A[User (Flutter App)] --> B[Connect Phantom Wallet]
+  A --> C[Create Bill via Supabase]
+  A -->|Shows QR| D[Other Users Join]
+  D --> E[Send SPL Token]
+  E --> F[Jupiter Swap to USDC]
+  F --> G[USDC Sent to Bill Creator]
+  C --> H[Supabase DB stores group, expenses, payments]
+
+---
+
 ## Screenshots
 
 > _Add screenshots of your application here for better presentation._
