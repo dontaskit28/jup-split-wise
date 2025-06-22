@@ -83,20 +83,6 @@ Traditional expense-splitting apps assume all users deal in the same currency or
 
 ---
 
-### 📦 Architecture Diagram
-
-```mermaid
-graph TD
-  A[User (Flutter App)] --> B[Connect Phantom Wallet]
-  A --> C[Create Bill via Supabase]
-  A -->|Shows QR| D[Other Users Join]
-  D --> E[Send SPL Token]
-  E --> F[Jupiter Swap to USDC]
-  F --> G[USDC Sent to Bill Creator]
-  C --> H[Supabase DB stores group, expenses, payments]
-
----
-
 ## Screenshots
 
 > _Add screenshots of your application here for better presentation._
