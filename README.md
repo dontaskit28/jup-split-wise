@@ -24,6 +24,7 @@ Traditional expense-splitting apps assume all users deal in the same currency or
 ## Table of Contents
 
 - [Features](#features)
+- [Tech Stack](#tech-stack)
 - [Screenshots](#screenshots)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
@@ -42,9 +43,25 @@ Traditional expense-splitting apps assume all users deal in the same currency or
 - **Payment Settlement**: Record payments made to settle balances.
 - **Profile Management**: Manage user profile and view transaction history.
 
+---
+
+## 🧰 Tech Stack
+
+- **Flutter** – Cross-platform UI toolkit
+- **GetX** – State management, routing, and DI
+- **Supabase** – Backend-as-a-service (PostgreSQL DB + Auth)
+- **Solana** – Blockchain for token transfers
+- **Jupiter Aggregator API** – Token swap engine
+- **Solana Web3 SDK (Go + JS)** – Transaction generation and signing
+- **Material Design** – UI Components
+
+---
+
 ## Screenshots
 
 > _Add screenshots of your application here for better presentation._
+
+---
 
 ## Getting Started
 
